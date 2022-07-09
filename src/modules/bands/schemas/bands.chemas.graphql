@@ -1,0 +1,20 @@
+type Query {
+  allBands: [Band]
+  band(id: ID!): Band
+}
+
+type Band {
+  _id: ID!
+  name: String
+  origin: String
+  members: [Member]
+  website: String
+  genres: [Genre]
+}
+
+type Member {
+  _id: ID!
+  firstName: String
+  secondName: String
+  middleName: String
+}
