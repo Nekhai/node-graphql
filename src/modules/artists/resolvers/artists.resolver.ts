@@ -1,7 +1,7 @@
 export const artistsResolver = {
   Query: {
-    allArtists: async (_: null, __: null, { dataSources }: any) => {
-      const result = await dataSources.artistsAPI.getAllArtists();
+    artists: async (_: null, __: null, { dataSources }: any) => {
+      const result = await dataSources.artistsAPI.getArtists();
       return result.items;
     },
     artist: async (_: null, { id }: { id: string }, { dataSources }: any) => {

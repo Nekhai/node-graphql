@@ -7,7 +7,7 @@ export class TracksAPI extends RESTDataSource {
     this.baseURL = process.env.URL_TRACKS;
   }
 
-  getAllTracks() {
+  getTracks() {
     return this.get("");
   }
 

@@ -6,6 +6,10 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
   dataSources: () => sources(),
+  context: ({ req }) => {
+    const token = req.headers.authorization || "";
+    return token;
+  },
 });
 
 const PORT = process.env.PORT || 4000;

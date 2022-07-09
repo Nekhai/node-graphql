@@ -7,7 +7,7 @@ export class BandsAPI extends RESTDataSource {
     this.baseURL = process.env.URL_BANDS;
   }
 
-  getAllBands() {
+  getBands() {
     return this.get("");
   }
 

@@ -1,8 +1,8 @@
 type Query {
-  allFavorites: [Favorites]
+  favourites: [Favourites]
 }
 
-type Favorites {
+type Favourites {
   _id: ID!
   userId: ID
   bands: [Band]

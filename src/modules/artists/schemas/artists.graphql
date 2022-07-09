@@ -1,5 +1,5 @@
 type Query {
-  allArtists: [Artist]
+  artists: [Artist]
   artist(id: ID!): Artist
 }
 

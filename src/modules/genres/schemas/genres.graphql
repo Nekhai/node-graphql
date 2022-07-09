@@ -1,5 +1,5 @@
 type Query {
-  allGenres: [Genre]
+  genres: [Genre]
   genre(id: ID!): Genre
 }
 

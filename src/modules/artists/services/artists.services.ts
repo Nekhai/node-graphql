@@ -7,7 +7,7 @@ export class ArtistsAPI extends RESTDataSource {
     this.baseURL = process.env.URL_ARTISTS;
   }
 
-  getAllArtists() {
+  getArtists() {
     return this.get("");
   }
 

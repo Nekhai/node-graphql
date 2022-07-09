@@ -7,7 +7,7 @@ export class GenresAPI extends RESTDataSource {
     this.baseURL = process.env.URL_GENERES;
   }
 
-  getAllGenres() {
+  getGenres() {
     return this.get("");
   }
 

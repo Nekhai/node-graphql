@@ -1,13 +1,13 @@
 import { RESTDataSource } from "apollo-datasource-rest";
 import "dotenv/config";
 
-export class FavoritesAPI extends RESTDataSource {
+export class FavouritesAPI extends RESTDataSource {
   constructor() {
     super();
-    this.baseURL = process.env.URL_FAVORITES;
+    this.baseURL = process.env.URL_FAVOURITES;
   }
 
-  getAllFavorites() {
+  getFavourites() {
     return this.get("");
   }
 }

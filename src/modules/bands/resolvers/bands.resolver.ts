@@ -1,6 +1,6 @@
 export const bandsResolver = {
   Query: {
-    allBands: async (_: null, __: null, { dataSources }: any) => {
+    bands: async (_: null, __: null, { dataSources }: any) => {
       const result = await dataSources.bandsAPI.getAllBands();
       return result.items;
     },

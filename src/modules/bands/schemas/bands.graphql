@@ -1,5 +1,5 @@
 type Query {
-  allBands: [Band]
+  bands: [Band]
   band(id: ID!): Band
 }
 

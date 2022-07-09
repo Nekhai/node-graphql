@@ -1,5 +1,6 @@
 import { RESTDataSource } from "apollo-datasource-rest";
 import "dotenv/config";
+// import { Album } from "../../../types";
 
 export class AlbumsAPI extends RESTDataSource {
   constructor() {
@@ -7,13 +8,17 @@ export class AlbumsAPI extends RESTDataSource {
     this.baseURL = process.env.URL_ALBUMS;
   }
 
-  getAllAlbums() {
+  getAlbums() {
     return this.get("");
   }
 
   getAlbum(albumId: string) {
     return this.get(`/${albumId}/`);
   }
+
+  // addAlbum(album: Album) {
+  //   this.post("", album);
+  // }
 
   // async getAlbumBands(albumId: string, BandsAPI: any) {
   //   const album = await this.get(`/${albumId}/`);

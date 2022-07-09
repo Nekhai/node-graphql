@@ -1,7 +1,8 @@
 export const albumsResolver = {
   Query: {
-    allAlbums: async (_: null, __: null, { dataSources }: any) => {
-      const result = await dataSources.albumsAPI.getAllAlbums();
+    albums: async (_: null, __: null, { dataSources, token }: any) => {
+      console.log(token);
+      const result = await dataSources.albumsAPI.getAlbums();
       return result.items;
     },
     album: async (_: null, { id }: { id: string }, { dataSources }: any) => {
@@ -31,4 +32,12 @@ export const albumsResolver = {
       });
     },
   },
+
+  // Mutation: {
+  //   addAlbum: async (contex: any, args: any, { dataSources }: any) => {
+  //     console.log(contex);
+  //     console.log(args);
+  //     await dataSources.albumsAPI.addAlbum();
+  //   },
+  // },
 };

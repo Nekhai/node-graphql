@@ -1,5 +1,5 @@
 type Query {
-  allTracks: [Track]
+  tracks: [Track]
   track(id: ID!): Track
 }
 

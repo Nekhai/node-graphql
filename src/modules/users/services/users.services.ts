@@ -10,4 +10,8 @@ export class UsersAPI extends RESTDataSource {
   getUser(userId: string) {
     return this.get(`/${userId}/`);
   }
+
+  getJwt(email: string, password: string) {
+    return this.post("/login", { email, password });
+  }
 }

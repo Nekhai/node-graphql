@@ -1,5 +1,5 @@
 type Query {
-  allAlbums: [Album]
+  albums: [Album]
   album(id: ID!): Album
 }
 
@@ -13,3 +13,7 @@ type Album {
   genres: [Genre]
   image: String
 }
+
+# type Mutation {
+#   addAlbum(album: Album): Album
+# }
