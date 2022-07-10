@@ -15,8 +15,8 @@ export class FavouritesAPI extends RESTDataSource {
     return this.get("");
   }
 
-  addToFavourites(type: string, userId: string, id: string) {
-    console.log({ type, userId, id });
-    return this.post("/add/", { type, userId, id });
+  addToFavourites(type: string, id: string) {
+    console.log({ type, id });
+    return this.put("/add/", { type, id });
   }
 }

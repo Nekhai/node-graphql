@@ -8,47 +8,31 @@ export const favouritesResolver = {
   Mutation: {
     addTrackToFavourites: async (
       _: null,
-      { id }: any,
+      { id }: { id: string },
       { dataSources }: any
     ) => {
-      const user = await dataSources.usersAPI.getId();
-      return await dataSources.favouritesAPI.addToFavourites(
-        "tracks",
-        user._id,
-        id
-      );
+      return await dataSources.favouritesAPI.addToFavourites("tracks", id);
     },
-    addBandToFavourites: async (_: null, { id }: any, { dataSources }: any) => {
-      const user = await dataSources.usersAPI.getId();
-      return await dataSources.favouritesAPI.addToFavourites(
-        "bands",
-        user._id,
-        id
-      );
+    addBandToFavourites: async (
+      _: null,
+      { id }: { id: string },
+      { dataSources }: any
+    ) => {
+      return await dataSources.favouritesAPI.addToFavourites("bands", id);
     },
     addArtistToFavourites: async (
       _: null,
-      { id }: any,
+      { id }: { id: string },
       { dataSources }: any
     ) => {
-      const user = await dataSources.usersAPI.getId();
-      return await dataSources.favouritesAPI.addToFavourites(
-        "artists",
-        user._id,
-        id
-      );
+      return await dataSources.favouritesAPI.addToFavourites("artists", id);
     },
     addGenreToFavourites: async (
       _: null,
-      { id }: any,
+      { id }: { id: string },
       { dataSources }: any
     ) => {
-      const user = await dataSources.usersAPI.getId();
-      return await dataSources.favouritesAPI.addToFavourites(
-        "genres",
-        user._id,
-        id
-      );
+      return await dataSources.favouritesAPI.addToFavourites("genres", id);
     },
   },
 };
