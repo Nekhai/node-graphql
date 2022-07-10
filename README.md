@@ -32,48 +32,61 @@ run your own database
 
 ## Queries
 
-artist
-artists
-genre
-genres
-track
-tracks
-band
-bands
-album
-albums
-jwt
-user
-favourites (available only for logged in user)
+- artist
+- artists
+- genre
+- genres
+- track
+- tracks
+- band
+- bands
+- album
+- albums
+- jwt
+- user
+- favourites (available only for logged in user)
 
 ## Mutation
 
 Mutation requests available only for logged in users. (except Users.register)
 
-*Artists
-createArtist
-deleteArtist
-updateArtist
-*Genres
-createGenre
-deleteGenre
-updateGenre
-*Bands
-createBand
-deleteBand
-updateBand
-*Tracks
-createTrack
-deleteTrack
-updateTrack
-*Albums
-createAlbum
-deleteAlbum
-updateAlbum
-*Users
-register
-\*Favourites
-addTrackToFavourites
-addBandToFavourites
-addArtistToFavourites
-addGenreToFavourites
+- Artists
+
+* createArtist
+* deleteArtist
+* updateArtist
+
+- Genres
+
+* createGenre
+* deleteGenre
+* updateGenre
+
+- Bands
+
+* createBand
+* deleteBand
+* updateBand
+
+- Tracks
+
+* createTrack
+* deleteTrack
+* updateTrack
+
+- Albums
+
+* createAlbum
+* deleteAlbum
+* updateAlbum
+
+- Users
+
+* register
+
+- Favourites
+
+* addTrackToFavourites
+* addBandToFavourites
+* addArtistToFavourites
+* addGenreToFavourites
