@@ -5,10 +5,12 @@ import { resolvers, typeDefs, sources } from "./graphgl";
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+  csrfPrevention: true,
+  cache: "bounded",
   dataSources: () => sources(),
   context: ({ req }) => {
     const token = req.headers.authorization || "";
-    return token;
+    return { token };
   },
 });
 
