@@ -1,5 +1,5 @@
 type Query {
-  bands: [Band]
+  bands(limit: Int, offset: Int): [Band]
   band(id: ID!): Band
 }
 
@@ -17,4 +17,18 @@ type Member {
   firstName: String
   secondName: String
   middleName: String
+}
+
+input BandInput {
+  name: String
+  origin: String
+  members: [ID]
+  website: String
+  genresIds: [ID]
+}
+
+type Mutation {
+  createBand(input: BandInput): Band
+  deleteBand(id: ID!): Band
+  updateBand(id: ID!, input: BandInput): Band
 }

@@ -1,11 +1,15 @@
-import { RESTDataSource } from "apollo-datasource-rest";
+import { RESTDataSource, RequestOptions } from "apollo-datasource-rest";
 import "dotenv/config";
-// import { Album } from "../../../types";
+import { Album } from "../../../types";
 
 export class AlbumsAPI extends RESTDataSource {
   constructor() {
     super();
     this.baseURL = process.env.URL_ALBUMS;
+  }
+
+  async willSendRequest(request: RequestOptions) {
+    request.headers.set("Authorization", `Bearer ${this.context.token}`);
   }
 
   getAlbums() {
@@ -16,13 +20,15 @@ export class AlbumsAPI extends RESTDataSource {
     return this.get(`/${albumId}/`);
   }
 
-  // addAlbum(album: Album) {
-  //   this.post("", album);
-  // }
+  createAlbum(album: Album) {
+    return this.post("/", album);
+  }
 
-  // async getAlbumBands(albumId: string, BandsAPI: any) {
-  //   const album = await this.get(`/${albumId}/`);
-  //   const bands = album.bandsIds.map((bandId: any) => BandsAPI.getBand(bandId));
-  //   return bands;
-  // }
+  deleteAlbum(albumId: string) {
+    return this.delete(`/${albumId}/`);
+  }
+
+  updateAlbum(albumId: string, album: Album) {
+    return this.put(`/${albumId}/`, album);
+  }
 }

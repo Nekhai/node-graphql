@@ -8,6 +8,7 @@ import { favouritesResolver } from "./modules/favourites/resolvers/favourites.re
 import { genresResolver } from "./modules/genres/resolvers/genres.resolver";
 import { artistsResolver } from "./modules/artists/resolvers/artists.resolver";
 import { albumsResolver } from "./modules/albums/resolvers/albums.resolver";
+import { usersResolver } from "./modules/users/resolvers/users.resolver";
 
 import { TracksAPI } from "./modules/tracks/services/tracks.services";
 import { BandsAPI } from "./modules/bands/services/bands.services";
@@ -28,6 +29,7 @@ export const resolvers = mergeResolvers([
   genresResolver,
   artistsResolver,
   albumsResolver,
+  usersResolver,
 ]);
 
 export const sources = () => {
@@ -35,7 +37,7 @@ export const sources = () => {
     tracksAPI: new TracksAPI(),
     bandsAPI: new BandsAPI(),
     genresAPI: new GenresAPI(),
-    favoritesAPI: new FavouritesAPI(),
+    favouritesAPI: new FavouritesAPI(),
     usersAPI: new UsersAPI(),
     albumsAPI: new AlbumsAPI(),
     artistsAPI: new ArtistsAPI(),

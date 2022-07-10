@@ -1,5 +1,6 @@
-import { RESTDataSource } from "apollo-datasource-rest";
+import { RESTDataSource, RequestOptions } from "apollo-datasource-rest";
 import "dotenv/config";
+import { Band } from "../../../types";
 
 export class BandsAPI extends RESTDataSource {
   constructor() {
@@ -7,11 +8,27 @@ export class BandsAPI extends RESTDataSource {
     this.baseURL = process.env.URL_BANDS;
   }
 
-  getBands() {
-    return this.get("");
+  async willSendRequest(request: RequestOptions) {
+    request.headers.set("Authorization", `Bearer ${this.context.token}`);
   }
 
-  async getBand(bandId: string) {
+  getBands(limit: number, offset: number) {
+    return this.get("", { limit, offset });
+  }
+
+  getBand(bandId: string) {
     return this.get(`/${bandId}/`);
+  }
+
+  createBand(band: Band) {
+    return this.post("", band);
+  }
+
+  deleteBand(bandId: string) {
+    return this.delete(`/${bandId}/`);
+  }
+
+  updateBand(bandId: string, band: Band) {
+    return this.put(`/${bandId}/`, band);
   }
 }

@@ -4,12 +4,15 @@ export const usersResolver = {
       return dataSources.usersAPI.getUser(id);
     },
 
-    jwt: async (
-      _: null,
-      { email, password }: { email: string; password: string },
-      { dataSources }: any
-    ) => {
-      return dataSources.usersAPI.getJwt(email, password);
+    jwt: async (_: null, { input }: any, { dataSources }: any) => {
+      const result = await dataSources.usersAPI.getJwt(input);
+      return result.jwt;
+    },
+  },
+
+  Mutation: {
+    register: async (_: null, { input }: any, { dataSources }: any) => {
+      return await dataSources.usersAPI.register(input);
     },
   },
 };
