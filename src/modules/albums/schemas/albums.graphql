@@ -1,0 +1,31 @@
+type Query {
+  albums(limit: Int, offset: Int): [Album]
+  album(id: ID!): Album
+}
+
+type Album {
+  _id: ID!
+  name: String
+  released: Int
+  artists: [Artist]
+  bands: [Band]
+  tracks: [Track]
+  genres: [Genre]
+  image: String
+}
+
+input AlbumInput {
+  name: String
+  released: Int
+  artistsIds: [ID]
+  bandsIds: [ID]
+  trackIds: [ID]
+  gengenresIdsres: [ID]
+  image: String
+}
+
+type Mutation {
+  createAlbum(input: AlbumInput): Album
+  deleteAlbum(id: ID!): Album
+  updateAlbum(id: ID!, input: AlbumInput): Album
+}
